@@ -1,0 +1,20 @@
+# This program is able to read any integer safely and returns error for other types
+
+def read_int(prompt, min, max):
+    logic = False
+    while not logic:
+        try:
+            value = int(input(prompt))
+            logic = True
+        except ValueError:
+            print("Error: wrong input")
+        if logic:
+            logic = value >= min and value <= max
+        if not logic:
+            print("Error: the value is not within the permitted range (" + str(min) + ".." + str(max) + ")")
+    return value;
+    
+    
+r = read_int("Enter a number from -100 to 100: ", -10, 10)
+
+print("your number is:", r)
